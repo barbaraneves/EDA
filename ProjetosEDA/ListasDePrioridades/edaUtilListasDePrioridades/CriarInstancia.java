@@ -1,4 +1,4 @@
-package br.ufc.quixada.eda.util;
+package edaUtilListasDePrioridades;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-import br.ufc.quixada.eda.listaprioridades.HeapMaximo;
+import listasDePrioridades.HeapMaximo;
 
 /**
  * Cria as inst�ncias juntamente com as opera��es.

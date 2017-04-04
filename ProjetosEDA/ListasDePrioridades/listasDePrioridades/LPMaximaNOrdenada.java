@@ -1,4 +1,4 @@
-package br.ufc.quixada.eda.listaprioridades;
+package listasDePrioridades;
 
 import java.util.List;
 

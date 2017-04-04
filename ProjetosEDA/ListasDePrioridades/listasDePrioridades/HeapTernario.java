@@ -1,55 +1,66 @@
-package br.ufc.quixada.eda.listaprioridades;
+package listasDePrioridades;
 
 import java.util.List;
 
 /**
- * Implementa a lista de prioridade usando Heap Maximo.
- * @author fabio
- *
- */
+ * Implementa a lista de prioridades usando Heap Ternário.
+ * 
+ * @author joyce
+ * @author barbara
+ * 
+ **/
 
-public class HeapMaximo {
+public class HeapTernario{
 	private int nMaximo = 0;
 	private int vetor[] = null;
 	private int n = 0;
-	
-	public HeapMaximo(int Nmaximo){
+		
+	public HeapTernario(int Nmaximo){
 		nMaximo = Nmaximo;
 		vetor = new int[Nmaximo];
 	}
+		
+	/* 
+	 * Boa parte dos métodos subir() e descer() foi feita tirando 
+	 * dúvidas com os colegas de classe e fazendo pesquisas sobre o
+	 * Heap Tenário, já que nós duas perdemos boa parte da aula.  
+	 */
 	
 	private void subir(int i){
-		int j = (i - 1)/2;
+		int j = (i - 2)/3;
 		
+		if(j < 0){
+			int pai = j*(-1);
+			j = pai;
+		}
 		if(j >= 0){
 			if(vetor[i] > vetor[j]){
 				int aux = vetor[i];
-	            vetor[i] = vetor[j];
-	            vetor[j] = aux;
-	            
-	            subir(j);
+				vetor[i] = vetor[j];
+				vetor[j] = aux;
+				
+				subir(j);
 			}
 		}
 	}
-	
+		
 	private void descer(int i){
-		int j = 2*(i + 1);
+		int j = 3*i;
 		
 		if(j <= n){
-			j--;
 			if(j + 1 < n && vetor[j] < vetor[j + 1]){
 				j++;
 			}
 			if(vetor[i] < vetor[j]){
 				int aux = vetor[i];
-	            vetor[i] = vetor[j];
-	            vetor[j] = aux;
-	            
-	            descer(j);
+				vetor[i] = vetor[j];
+				vetor[j] = aux;
+				
+				descer(j);
 			}
 		}
 	}
-	
+		
 	public void construir(List<Integer> entrada){
 		for(int i = 0; i < entrada.size(); i++){
 			vetor[i] = entrada.get(i);
@@ -60,14 +71,14 @@ public class HeapMaximo {
 			descer(j);
 		}
 	}
-	
+		
 	public int getMaximaPrioridade(){
 		if(n > 0){
 			return vetor[0];
 		}
 		return 0;
 	}
-	
+		
 	public int remove(){
 		if(n > 0){
 			int aux = vetor[0];
@@ -78,7 +89,7 @@ public class HeapMaximo {
 		}
 		return 0;
 	}	
-	
+		
 	public void inserir(int prioridade){
 		if(n != nMaximo){
 			vetor[n] = prioridade;
@@ -86,23 +97,24 @@ public class HeapMaximo {
 			subir(n - 1);
 		}
 	}
-	
-	public void alterarPrioridade(int prioridade, int novaPrioridade){
-		for(int i = 0; i < n; i++){
+		
+	public void alterarPrioridade(int prioridade, int novaPrioridade){	
+		int i = 0;
+		
+		while(i < n){
 			if(vetor[i] == prioridade){
 				vetor[i] = novaPrioridade;
-				if(novaPrioridade > prioridade){
-					subir(i);
-				}
-				else{
+				
+				if(novaPrioridade < prioridade){
 					descer(i);
 				}
-				return;
+				subir(i);
 			}
+			i++;
 		}
 	}	
 	
-	public void mostrarHeap(){
+	public void mostrarHeapTernario(){
 		System.out.println("Quantidade de elementos: " + n + ", e elem. do Heap Maximo:");
 		
 		for(int i = 0; i < n; i++){

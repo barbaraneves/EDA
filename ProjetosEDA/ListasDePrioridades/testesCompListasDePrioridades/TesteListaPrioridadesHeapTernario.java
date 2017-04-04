@@ -1,15 +1,15 @@
-package br.ufc.quixada.eda.testes;
+package testesCompListasDePrioridades;
 
 import java.io.IOException;
 import java.util.List;
 
-import br.ufc.quixada.eda.listaprioridades.HeapMaximo;
-import br.ufc.quixada.eda.util.CriarInstancia;
-import br.ufc.quixada.eda.util.EDAConstants;
-import br.ufc.quixada.eda.util.EDAUtil;
-import br.ufc.quixada.eda.util.Operacao;
+import edaUtilListasDePrioridades.CriarInstancia;
+import edaUtilListasDePrioridades.EDAConstants;
+import edaUtilListasDePrioridades.EDAUtil;
+import edaUtilListasDePrioridades.Operacao;
+import listasDePrioridades.HeapTernario;
 
-public class TesteListaPrioridadesHeapBinario {
+public class TesteListaPrioridadesHeapTernario {
 	public static void main(String args[]){		
 		try {
 			for (int tamanho : CriarInstancia.tamanhoInstancias) {				
@@ -22,7 +22,7 @@ public class TesteListaPrioridadesHeapBinario {
 				List<Operacao> operacoes = EDAUtil.getOperacoes(path);
 				
 				long tempoInicial = System.currentTimeMillis();				
-				HeapMaximo listaPrioridade = new HeapMaximo(2*entrada.size());
+				HeapTernario listaPrioridade = new HeapTernario(2*entrada.size());
 				listaPrioridade.construir(entrada);							
 			
 				for (Operacao operacao : operacoes) {
@@ -39,7 +39,7 @@ public class TesteListaPrioridadesHeapBinario {
 				operacoes = EDAUtil.getOperacoes(path);
 				
 				tempoInicial = System.currentTimeMillis();				
-				listaPrioridade = new HeapMaximo(2*entrada.size());
+				listaPrioridade = new HeapTernario(2*entrada.size());
 				listaPrioridade.construir(entrada);							
 			
 				for (Operacao operacao : operacoes) {
@@ -56,7 +56,7 @@ public class TesteListaPrioridadesHeapBinario {
 				operacoes = EDAUtil.getOperacoes(path);
 				
 				tempoInicial = System.currentTimeMillis();				
-				listaPrioridade = new HeapMaximo(2*entrada.size());
+				listaPrioridade = new HeapTernario(2*entrada.size());
 				listaPrioridade.construir(entrada);							
 			
 				for (Operacao operacao : operacoes) {
@@ -73,7 +73,7 @@ public class TesteListaPrioridadesHeapBinario {
 				operacoes = EDAUtil.getOperacoes(path);
 				
 				tempoInicial = System.currentTimeMillis();				
-				listaPrioridade = new HeapMaximo(2*entrada.size());
+				listaPrioridade = new HeapTernario(2*entrada.size());
 				listaPrioridade.construir(entrada);							
 			
 				for (Operacao operacao : operacoes) {

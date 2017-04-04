@@ -1,10 +1,10 @@
-package br.ufc.quixada.eda.main;
+package testesListasDePrioridades;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import br.ufc.quixada.eda.listaprioridades.LPMaximaNOrdenada;
+import listasDePrioridades.LPMaximaNOrdenada;
 
 public class TesteMainVetorNOrdenada {
 

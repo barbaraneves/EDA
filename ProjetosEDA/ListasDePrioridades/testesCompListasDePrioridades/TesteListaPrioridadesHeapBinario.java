@@ -1,28 +1,28 @@
-package br.ufc.quixada.eda.testes;
+package testesCompListasDePrioridades;
 
 import java.io.IOException;
 import java.util.List;
 
-import br.ufc.quixada.eda.listaprioridades.LPMaximaNOrdenada;
-import br.ufc.quixada.eda.util.CriarInstancia;
-import br.ufc.quixada.eda.util.EDAConstants;
-import br.ufc.quixada.eda.util.EDAUtil;
-import br.ufc.quixada.eda.util.Operacao;
+import edaUtilListasDePrioridades.CriarInstancia;
+import edaUtilListasDePrioridades.EDAConstants;
+import edaUtilListasDePrioridades.EDAUtil;
+import edaUtilListasDePrioridades.Operacao;
+import listasDePrioridades.HeapMaximo;
 
-public class TesteListaPrioridadesNOrdenado {
+public class TesteListaPrioridadesHeapBinario {
 	public static void main(String args[]){		
 		try {
 			for (int tamanho : CriarInstancia.tamanhoInstancias) {				
 				String path = EDAConstants.caminhoPasta + "tarefa" + tamanho + ".txt";
 				List<Integer> entrada = EDAUtil.getDadosIniciais(path);
 				
-				//PARA ARQUIVO COM MAIOR QUANTIDADE DE INSER��ES
+				//Para arquivo com maior quantidade de INSERÇÕES.
 				String arquivoOperacao = "operacoesI_" + tamanho;
 				path = EDAConstants.caminhoPasta + arquivoOperacao + ".txt";
 				List<Operacao> operacoes = EDAUtil.getOperacoes(path);
 				
 				long tempoInicial = System.currentTimeMillis();				
-				LPMaximaNOrdenada listaPrioridade = new LPMaximaNOrdenada(2*entrada.size());
+				HeapMaximo listaPrioridade = new HeapMaximo(2*entrada.size());
 				listaPrioridade.construir(entrada);							
 			
 				for (Operacao operacao : operacoes) {
@@ -33,13 +33,13 @@ public class TesteListaPrioridadesNOrdenado {
 				long tempo = System.currentTimeMillis() - tempoInicial;			  
 				System.out.println(arquivoOperacao + ": " + tempo);
 				
-				//PARA ARQUIVO COM MAIOR QUANTIDADE DE ALTERA��ES
+				//Para arquivo com maior quantidade de ALTERAÇÃO.
 				arquivoOperacao = "operacoesA_" + tamanho;
 				path = EDAConstants.caminhoPasta + arquivoOperacao + ".txt";
 				operacoes = EDAUtil.getOperacoes(path);
 				
 				tempoInicial = System.currentTimeMillis();				
-				listaPrioridade = new LPMaximaNOrdenada(2*entrada.size());
+				listaPrioridade = new HeapMaximo(2*entrada.size());
 				listaPrioridade.construir(entrada);							
 			
 				for (Operacao operacao : operacoes) {
@@ -56,7 +56,7 @@ public class TesteListaPrioridadesNOrdenado {
 				operacoes = EDAUtil.getOperacoes(path);
 				
 				tempoInicial = System.currentTimeMillis();				
-				listaPrioridade = new LPMaximaNOrdenada(2*entrada.size());
+				listaPrioridade = new HeapMaximo(2*entrada.size());
 				listaPrioridade.construir(entrada);							
 			
 				for (Operacao operacao : operacoes) {
@@ -65,7 +65,7 @@ public class TesteListaPrioridadesNOrdenado {
 					}
 				}	
 				tempo = System.currentTimeMillis() - tempoInicial;			  
-				System.out.println(arquivoOperacao + ": " + tempo);	
+				System.out.println(arquivoOperacao + ": " + tempo);
 				
 				//Para arquivo com maior quantidade de SELEÇÃO.
 				arquivoOperacao = "operacoesS_" + tamanho;
@@ -73,7 +73,7 @@ public class TesteListaPrioridadesNOrdenado {
 				operacoes = EDAUtil.getOperacoes(path);
 				
 				tempoInicial = System.currentTimeMillis();				
-				listaPrioridade = new LPMaximaNOrdenada(2*entrada.size());
+				listaPrioridade = new HeapMaximo(2*entrada.size());
 				listaPrioridade.construir(entrada);							
 			
 				for (Operacao operacao : operacoes) {

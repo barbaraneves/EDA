@@ -1,4 +1,4 @@
-package br.ufc.quixada.eda.util;
+package edaUtilListasDePrioridades;
 
 public interface EDAConstants {
 	String caminhoPasta = System.getProperty("user.dir") + "/Instancias/ListaPrioridades/";
