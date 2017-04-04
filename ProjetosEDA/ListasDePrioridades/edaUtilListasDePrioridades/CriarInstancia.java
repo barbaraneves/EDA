@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-import listasDePrioridades.HeapMaximo;
+import listasDePrioridades.*;
 
 /**
  * Cria as inst�ncias juntamente com as opera��es.

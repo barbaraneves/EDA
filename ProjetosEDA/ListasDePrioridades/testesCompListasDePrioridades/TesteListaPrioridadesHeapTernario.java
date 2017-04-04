@@ -3,11 +3,11 @@ package testesCompListasDePrioridades;
 import java.io.IOException;
 import java.util.List;
 
+import listasDePrioridades.*;
 import edaUtilListasDePrioridades.CriarInstancia;
 import edaUtilListasDePrioridades.EDAConstants;
 import edaUtilListasDePrioridades.EDAUtil;
 import edaUtilListasDePrioridades.Operacao;
-import listasDePrioridades.HeapTernario;
 
 public class TesteListaPrioridadesHeapTernario {
 	public static void main(String args[]){		
