@@ -4,17 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import listasDePrioridades.HeapTernario;
+import listasDePrioridades.*;
 
 public class TesteMainHeapTernario {
-	
 	public static void main(String[] args) {
-		
-		/*
-		 * Testes feitos instaciando e usando os métodos apenas 
-		 * para analisar o funcionamento da classe.
-		 */
-		
 		HeapTernario heapTer = new HeapTernario(50);
 		List<Integer> lista = new ArrayList<>();
 		

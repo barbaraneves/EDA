@@ -4,16 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import listasDePrioridades.HeapMaximo;;
+import listasDePrioridades.*;
 
 public class TesteMainHeapBinario {
 	
 	public static void main(String[] args) {
-		
-		/*
-		 * Testes feitos instaciando e usando os métodos apenas 
-		 * para analisar o funcionamento da classe.
-		 */
 		
 		HeapMaximo heapMax = new HeapMaximo(50);
 		List<Integer> lista3 = new ArrayList<>();

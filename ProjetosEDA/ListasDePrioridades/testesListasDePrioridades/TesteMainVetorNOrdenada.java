@@ -4,16 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import listasDePrioridades.LPMaximaNOrdenada;
+import listasDePrioridades.*;
 
 public class TesteMainVetorNOrdenada {
 
 	public static void main(String[] args) {
-		
-		/*
-		 * Testes feitos instaciando e usando os métodos apenas 
-		 * para analisar o funcionamento da classe.
-		 */
 		
 		LPMaximaNOrdenada vetorNOrdenado = new LPMaximaNOrdenada(50);
 		

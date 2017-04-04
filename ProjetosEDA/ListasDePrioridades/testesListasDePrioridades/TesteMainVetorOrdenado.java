@@ -4,16 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import listasDePrioridades.LPMaximaOrdenada;;
+import listasDePrioridades.*;
 
 public class TesteMainVetorOrdenado {
 	
 	public static void main(String[] args) {
-		
-		/*
-		 * Testes feitos instaciando e usando os métodos apenas 
-		 * para analisar o funcionamento da classe.
-		 */
 		
 		LPMaximaOrdenada vetorOrdenado = new LPMaximaOrdenada(50);	
 		List<Integer> lista2 = new ArrayList<>();
