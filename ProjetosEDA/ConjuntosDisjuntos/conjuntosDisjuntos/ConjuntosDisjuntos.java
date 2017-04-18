@@ -1,8 +1,5 @@
 package conjuntosDisjuntos;
 
-import java.util.Random;
-import java.util.Vector;
-
 public class ConjuntosDisjuntos {
 	private int pai[] = null;
 	private int ordem[] = null;
@@ -57,8 +54,50 @@ public class ConjuntosDisjuntos {
 		}
 	}
 	
-	public void union(int v, int u){
+	/**
+	 * União dos conjuntos utilizando todos os métodos mais simples. 
+	 */
+	public void union1(int v, int u){
+		linkSetAux(findSetAux(v), findSetAux(u));
+	}
+	
+	/**
+	 * União dos conjuntos utilizando os métodos mais otimizados.
+	 */ 
+	public void union2(int v, int u){
 		linkSet(findSet(v), findSet(u));
+	}
+	
+	/** 
+	 * União dos conjuntos utilizando o linkSet simples e passando
+	 * por parâmetro findSet otimizado.
+	 */
+	public void union3(int v, int u){
+		linkSetAux(findSet(v), findSet(u));
+	}
+	
+	/** 
+	 * União dos conjuntos utilizando o linkSet otimizado e passando
+	 * por parâmetro findSet simples.
+	 */
+	public void union4(int v, int u){
+		linkSet(findSetAux(v), findSetAux(u));
+	}
+	
+	/** 
+	 * União dos conjuntos utilizando o linkSet simples e passando
+	 * por parâmetro findSet otimizado e findSet simples.
+	 */
+	public void union5(int v, int u){
+		linkSetAux(findSet(v), findSetAux(u));
+	}
+	
+	/** 
+	 * União dos conjuntos utilizando o linkSet otimizado e passando
+	 * por parâmetro findSet simples e findSet otimizado.
+	 */
+	public void union6(int u, int v){
+		linkSet(findSetAux(v), findSet(u));
 	}
 	
 	public void mostrarConjuntoDisjunto(){

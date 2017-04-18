@@ -21,6 +21,6 @@ public class TesteMainConjuntosDisjuntos {
 		
 		conjDisjunto2.mostrarConjuntoDisjunto();
 		
-		conjDisjunto1.union(paiDeTodos, 0);		
+		conjDisjunto1.union1(paiDeTodos, 0);		
 	}
 }
