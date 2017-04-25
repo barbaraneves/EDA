@@ -7,3 +7,4 @@ DISCIPLINA DE ESTRUTURA DE DADOS AVANÇADOS.
 - Atividade 2: Heap Binário Mínimo, Heap Ternário Mínimo e testes computacionais em cima dessas estruturas;
 - Atividade 3: Conjuntos Disjuntos, Algoritmo Kruskal e testes computacionais (ainda não concluído);
 - Atividade 4: Heap Binário Máximo, Algoritmo Dijkstra e testes computacionais (ainda não concluído);
+- Atividade 5: Hash Table e suas colisões;
