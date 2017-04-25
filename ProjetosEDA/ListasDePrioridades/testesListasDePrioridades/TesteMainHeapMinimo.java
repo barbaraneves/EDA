@@ -13,23 +13,18 @@ public class TesteMainHeapMinimo {
 		
 		HeapMinimo heapMin = new HeapMinimo(50);
 		List<Integer> lista = new ArrayList<>();
-		List<Integer> IDs = new ArrayList<>();
-		
 		
 		Random numAleatorios = new Random(19700621);
 		
 		for(int i = 1; i <= 10; i++){
 			lista.add(numAleatorios.nextInt(51));
 		}
-		for(int j = 1; j <= 10; j++){
-			IDs.add(j);
-		}
 		
-		heapMin.construirAux(lista, IDs);
+		heapMin.construirAux(lista);
 		heapMin.mostrarHeap();
 		heapMin.mostrarIDs();
 		
-		heapMin.construir(lista, IDs);
+		heapMin.construir(lista);
 		heapMin.mostrarHeap();
 		heapMin.mostrarIDs();
 		

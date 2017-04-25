@@ -58,16 +58,17 @@ public class HeapMinimo {
 	
 	/**
 	 * Constroe as duas listas passadas por parâmetro 
-	 * atribuindo a característica de Heap Mínimo. 
+	 * atribuindo a característica de Heap Mínimo usando
+	 * uma lista. 
 	 */
-	public void construir(List<Integer> entrada, List<Integer> id){
+	public void construir(List<Integer> entrada){
 		//Preenche o heap.
 		for(int i = 0; i < entrada.size(); i++){
 			vetor[i] = entrada.get(i);
 		}
 		//Preenche o vetor de IDs.
-		for(int k = 0; k < id.size(); k++){
-			ID[k] = id.get(k);
+		for(int k = 0; k < entrada.size(); k++){
+			ID[k] = entrada.get(k);
 		}
 		n = entrada.size();
 		
@@ -78,28 +79,50 @@ public class HeapMinimo {
 	
 	/**
 	 * Constroe as duas listas passadas por parâmetro 
+	 * atribuindo a característica de Heap Mínimo 
+	 * usando um vetor. 
+	 */
+	public void construir(int entrada[]){
+		//Preenche o heap.
+		for(int i = 0; i < entrada.length; i++){
+			vetor[i] = entrada[i];
+		}
+		//Preenche o vetor de IDs.
+		for(int k = 0; k < entrada.length; k++){
+			ID[k] = entrada[k];
+		}
+		n = entrada.length;
+		
+		for(int j = n/2; j >= 0; j--){
+			descer(j);
+		}
+	}
+	
+	/**
+	 * Constroe as duas listas passadas por parâmetro 
 	 * sem atribuir a característica de Heap Mínimo. 
 	 */
-	public void construirAux(List<Integer> entrada, List<Integer> id){
+	public void construirAux(List<Integer> entrada){
 		//Preenche o heap.
 		for(int i = 0; i < entrada.size(); i++){
 			vetor[i] = entrada.get(i);
 		}
 		//Preenche o vetor de IDs.
-		for(int k = 0; k < id.size(); k++){
-			ID[k] = id.get(k);
+		for(int k = 0; k < entrada.size(); k++){
+			ID[k] = entrada.get(k);
 		}
 		n = entrada.size();
 	}
 	
-	/*
-	 * Os métodos abaixo PRECISAM de modificação.
-	 */
+	public boolean isEmpty(){
+		return (n == 0);
+	}
 	
 	public int remove(){
 		if(n > 0){
 			int aux = vetor[0];
 			vetor[0] = vetor[n - 1];
+			ID[0] = ID[n - 1];
 			n--;
 			descer(0);
 			return aux;
@@ -121,11 +144,7 @@ public class HeapMinimo {
 				return;
 			}
 		}
-	}	
-	
-	/*
-	 * Os métodos abaixo NÃO PRECISAM de modificação.
-	 */
+	}
 	
 	public int getMinimaPrioridade(){
 		if(n > 0){

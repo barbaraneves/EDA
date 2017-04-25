@@ -1,65 +1,79 @@
 package grafo;
-
-public class Grafo {
-	private int n = 0;
-	private int m = 0;
-	private Aresta arestas[] = null;
-	
-	//Fazer um método lá em baixo que cria uma aresta e adiciona na lista.
 	
 	/*
-	 * n representa a quantidade de vértices do grafo.
-	 * Um grafo também possui uma vetor de arestas, 
-	 * e a quantidade de arestas que ele possui (dada por m).
+	 * Um grafo possui uma vetor de arestas, 
+	 * e a quantidade de arestas que ele possui.
 	 */
+
+public class Grafo {
+	private int qtdVertice;
+	private int qtdAresta;
+	private Aresta arestas[];
+	private ListaAdjacencia adj[];
 	
-	public Grafo(int n, int m) {
-		this.n = n;
-		this.m = m;
-		arestas = new Aresta[m];
+	public Grafo(int a, int b){
+		qtdVertice = a;
+		qtdAresta = b;
 	}
 
-	public int getN() {
-		return n;
+	public int getQtdVertice() {
+		return qtdVertice;
 	}
 
-	public void setN(int n) {
-		this.n = n;
+	public void setQtdVertice(int qtdVertice) {
+		this.qtdVertice = qtdVertice;
 	}
 
-	public int getM() {
-		return m;
+	public int getQtdAresta() {
+		return qtdAresta;
 	}
 
-	public void setM(int m) {
-		this.m = m;
+	public void setQtdAresta(int qtdAresta) {
+		this.qtdAresta = qtdAresta;
 	}
-
-	public Aresta[] getArestas() {
+	
+	public Aresta[] getArestas(){
 		return arestas;
 	}
 	
-	
-	//Analisar esse método.
-	public Aresta getAresta(int posicao){
-		for(Aresta aresta : arestas){
-			if(aresta == arestas[posicao]){
-				return aresta;
-			}
-		}
-		return null;
-	}
-
-	public void setArestas(Aresta[] arestas) {
+	public void setArestas(Aresta[] arestas){
 		this.arestas = arestas;
 	}
 	
-	public int sizeArestas(){
-		int cont = 0;
-		
-		for(Aresta aresta : arestas){
-			cont++;
+	public void add (Aresta a){
+		arestas[arestas.length] = a;
+	}
+	public void quickSort(int i, int j){
+		if (i < j){
+			int k = particiona(i , j);
+			quickSort(i, k - 1);
+			quickSort(k + 1, j);
 		}
-		return cont;
+	}
+	
+	public int particiona(int i, int j){
+		int pivo = j;
+		int a = i - 1;
+		for(int p = i; p < j; p++){
+			if(arestas[p].getCusto() < arestas[pivo].getCusto()){
+				a++;
+				Aresta aux = arestas[p];
+				arestas[p] = arestas[a];
+				arestas[a] = aux;
+			}
+		}
+		
+		Aresta aux = arestas[a + 1];
+		arestas[a + 1] = arestas[j];
+		arestas[j] = aux;
+		return a +1;
+	}
+	
+	public ListaAdjacencia[] getAdj(){
+		return adj;
+	}
+	
+	public void setAdj(ListaAdjacencia[] adj){
+		this.adj = adj;
 	}
 }

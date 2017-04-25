@@ -8,20 +8,45 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-/*
- * PRECISA MODIFICAR! 
- */
+import listasDePrioridades.HeapMaximo;
 
 public class CriarInstancia {	
-	public static int tamanhoInstancias[] = {100, 10000, 50000, 100000, 500000, 800000};
+	public static int tamanhoInstanciasLP[] = {100, 10000, 50000, 100000, 500000, 800000};
+	public static int tamanhoInstanciasGK[] = {60, 100, 200, 300, 400, 500, 600, 700, 800, 900};
+	public static int tamanhoInstancias[] = {60, 100, 200, 300, 400, 500, 600, 700, 800, 900};
 	public static void criar(){
 		try {
 			@SuppressWarnings("resource")
 			Scanner scanner = new Scanner(System.in);
 			Random gerador = new Random(95487145);
-			System.out.println("CRIA��O DA INST�NCIA DE ENTRADA");
+			System.out.println("CRIAÇÃO DA INST�NCIA DE ENTRADA");
+			
+/*
+			for (int tamanho : tamanhoInstanciasGK) {
+				if(tamanho == 0) break;
+				while(tamanho % 2 != 0){
+					System.out.println("UM NUMERO PAR!!!!!!!: ");
+					tamanho = scanner.nextInt();
+				}
+				
+				for(int i = 0; i < 4; i++){
+					FileWriter arq = new FileWriter(EDAConstants.grafoKruskal + "tb8ch" + tamanho + "_" + i + ".txt");
+					PrintWriter gravarArq = new PrintWriter(arq);	
+					List<Integer> prioridadesIniciais = new ArrayList<Integer>();
+					for(int j = 1; j <= tamanho; j++){
+						Integer novoValor = gerador.nextInt(tamanho*5) + 1;
 						
-			for (int tamanho : tamanhoInstancias) {					
+						while(prioridadesIniciais.contains(novoValor)) novoValor = gerador.nextInt(tamanho*5) + 1;
+							
+						prioridadesIniciais.add(novoValor);
+						for (Integer valor : prioridadesIniciais) gravarArq.println(valor);
+						arq.close();
+					}					
+				}
+			}
+*/
+						
+			for (int tamanho : tamanhoInstanciasLP) {					
 				//System.out.println("DIGITE O TAMANHO (NUMERO PAR) (OU 0 PARA ENCERRAR): ");
 				
 				//int tamanho = scanner.nextInt();
@@ -30,8 +55,7 @@ public class CriarInstancia {
 					System.out.println("UM NUMERO PAR!!!!!!!: ");
 					tamanho = scanner.nextInt();
 				}
-				
-				FileWriter arq = new FileWriter(EDAConstants.caminhoPasta + "tarefa" + tamanho + ".txt");
+				FileWriter arq = new FileWriter(EDAConstants.listaPrioridade + "tarefa" + tamanho + ".txt");
 				PrintWriter gravarArq = new PrintWriter(arq);	
 				List<Integer> prioridadesIniciais = new ArrayList<Integer>();
 				for(int i = 1; i <= tamanho; i++){
@@ -49,7 +73,7 @@ public class CriarInstancia {
 				int qtdOperacoes = tamanho*qtd;	
 
 				//OPERA��ES EM MAIOR QUANTIDADE: INSER��O
-				arq = new FileWriter(EDAConstants.caminhoPasta + "operacoesI_" + tamanho + ".txt");
+				arq = new FileWriter(EDAConstants.listaPrioridade + "operacoesI_" + tamanho + ".txt");
 				gravarArq = new PrintWriter(arq);					
 				HeapMaximo listaPrioridade = new HeapMaximo(qtd*prioridadesIniciais.size());
 				listaPrioridade.construir(prioridadesIniciais);	
@@ -86,7 +110,7 @@ public class CriarInstancia {
 								
 				//OPERA��ES EM MAIOR QUANTIDADE: REMO��O
 				qtdOperacoes = tamanho*qtd;
-				arq = new FileWriter(EDAConstants.caminhoPasta + "operacoesR_" + tamanho + ".txt");
+				arq = new FileWriter(EDAConstants.listaPrioridade + "operacoesR_" + tamanho + ".txt");
 				gravarArq = new PrintWriter(arq);					
 				listaPrioridade = new HeapMaximo(qtd*prioridadesIniciais.size());
 				listaPrioridade.construir(prioridadesIniciais);	
@@ -123,7 +147,7 @@ public class CriarInstancia {
 				
 				//OPERA��ES EM MAIOR QUANTIDADE: ALTERA��O
 				qtdOperacoes = tamanho*qtd;
-				arq = new FileWriter(EDAConstants.caminhoPasta + "operacoesA_" + tamanho + ".txt");
+				arq = new FileWriter(EDAConstants.listaPrioridade + "operacoesA_" + tamanho + ".txt");
 				gravarArq = new PrintWriter(arq);					
 				listaPrioridade = new HeapMaximo(qtd*prioridadesIniciais.size());
 				listaPrioridade.construir(prioridadesIniciais);	
@@ -160,7 +184,7 @@ public class CriarInstancia {
 				
 				//OPERA��ES EM MAIOR QUANTIDADE: SELE��O
 				qtdOperacoes = tamanho*qtd;
-				arq = new FileWriter(EDAConstants.caminhoPasta + "operacoesS_" + tamanho + ".txt");
+				arq = new FileWriter(EDAConstants.listaPrioridade + "operacoesS_" + tamanho + ".txt");
 				gravarArq = new PrintWriter(arq);					
 				listaPrioridade = new HeapMaximo(qtd*prioridadesIniciais.size());
 				listaPrioridade.construir(prioridadesIniciais);	

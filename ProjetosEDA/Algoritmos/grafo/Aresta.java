@@ -3,18 +3,18 @@ package grafo;
 public class Aresta {
 	private int u = 0;
 	private int v = 0;
-	private int w = 0;
+	private int custo = 0;
 
 	/*
 	 * As variáveis v e u guardam os valores dos vértices
 	 * ligados por uma aresta, e a variável w representa o 
 	 * peso dessa aresta.
 	 */
-	
-	public Aresta(int u, int v, int w) {
+
+	public Aresta(int u, int v, int custo){
 		this.u = u;
 		this.v = v;
-		this.w = w;
+		this.custo = custo;
 	}
 
 	public int getU() {
@@ -32,12 +32,12 @@ public class Aresta {
 	public void setV(int v) {
 		this.v = v;
 	}
-
-	public int getW() {
-		return w;
+	
+	public int getCusto() {
+		return custo;
 	}
 
-	public void setW(int w) {
-		this.w = w;
-	}
+	public void setCusto(int custo) {
+		this.custo = custo;	
+	}	
 }
