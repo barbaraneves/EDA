@@ -13,15 +13,15 @@ import grafo.Grafo;
 public class TesteKruskal {
 	public static void main(String args[]){
 		try {
-			for (int tamanho : CriarInstancia.tamanhoInstanciasGK) {	
+			for (int tamanho : CriarInstancia.tamanhoInstancias) {	
 				for(int i = 0; i < 4; i++){
-					String path = EDAConstants.grafoKruskal + "tb8ch" + tamanho + "_" + i +".txt";
+					String path = EDAConstants.grafosAlgoritmos + "tb8ch" + tamanho + "_" + i +".txt";
 					
 					Grafo entrada = EDAUtil.lerGrafo(path);
 					
 					long tempoInicial = System.currentTimeMillis();				
 					ArvoreGeradoraMinima grafo = new ArvoreGeradoraMinima();
-					System.out.println("\n" + "tb8ch" + tamanho + "_" + i +":");
+					System.out.println("\n" + "tb8ch" + tamanho + "_" + i + ":");
 					List<Aresta> solucao= grafo.kruskal(entrada);
 					
 					System.out.println("Custo: " + grafo.getCusto(solucao));
@@ -30,8 +30,10 @@ public class TesteKruskal {
 					
 				}
 			}
-		} catch (IOException e) {
+		} 
+		catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+
 }

@@ -13,7 +13,7 @@ public class TesteDijkstra {
 		try {
 			for(int tamanho : CriarInstancia.tamanhoInstancias){
 				for(int i = 0; i < 4; i++){
-					String path = EDAConstants.grafoDijkstra + "tb8ch" + tamanho + "_" + ".txt";
+					String path = EDAConstants.grafosAlgoritmos + "tb8ch" + tamanho + "_" + i + ".txt";
 					
 					Grafo entrada = EDAUtil.lerGrafo(path);
 					
@@ -26,8 +26,9 @@ public class TesteDijkstra {
 					System.out.println("Tempo: " + tempo + ".");
 				}
 			}
-		}catch (IOException e) {
-		e.printStackTrace();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 }

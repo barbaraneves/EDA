@@ -6,29 +6,29 @@ package grafo;
 	 */
 
 public class Grafo {
-	private int qtdVertice;
-	private int qtdAresta;
+	private Integer qtdVertice;
+	private Integer qtdAresta;
 	private Aresta arestas[];
 	private ListaAdjacencia adj[];
 	
-	public Grafo(int a, int b){
+	public Grafo(Integer a, Integer b){
 		qtdVertice = a;
 		qtdAresta = b;
 	}
 
-	public int getQtdVertice() {
+	public Integer getQtdVertice() {
 		return qtdVertice;
 	}
 
-	public void setQtdVertice(int qtdVertice) {
+	public void setQtdVertice(Integer qtdVertice) {
 		this.qtdVertice = qtdVertice;
 	}
 
-	public int getQtdAresta() {
+	public Integer getQtdAresta() {
 		return qtdAresta;
 	}
 
-	public void setQtdAresta(int qtdAresta) {
+	public void setQtdAresta(Integer qtdAresta) {
 		this.qtdAresta = qtdAresta;
 	}
 	
