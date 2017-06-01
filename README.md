@@ -11,3 +11,4 @@
 
 # Nota:
 - As atividades 3 e 4 não foram concluídas, pois não foi possível realizar os testes computacionais pedidos.
+- Atividade 7 não foi concluída.
