@@ -6,6 +6,8 @@
 - Atividade 4: Heap Binário Máximo, Problema do Caminho Mínimo/Algoritmo Dijkstra e testes computacionais;
 - Atividade 5: Hash Table e suas colisões;
 - Atividade 6: Hash Table Genérica e tratamento de exceções;
+- Atividade 7: Hash Table e Endereçamento Aberto;
+- Atividade 8: Árvore AVL;
 
 # Nota:
 - As atividades 3 e 4 não foram concluídas, pois não foi possível realizar os testes computacionais pedidos.
