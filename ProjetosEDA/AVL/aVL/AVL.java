@@ -23,7 +23,7 @@ public class AVL {
 			raiz.setEsq(inserir(raiz.getEsq(), chave));
 			
 			if(altura(raiz.getEsq()) - altura(raiz.getDir()) == 2){
-				if(altura(raiz.getEsq().getEsq()) > altura(raiz.getDir().getEsq())){
+				if(altura(raiz.getEsq().getEsq()) > altura(raiz.getEsq().getDir())){
 					raiz = rotacaoDireita(raiz);
 				}
 				else{
@@ -45,28 +45,48 @@ public class AVL {
 			}
 		}
 		
-		/* raiz.altura = max(altura(raiz.dir)), altura(raiz.esq) + 1; */
+		raiz.setAltura(((altura(raiz.getDir()) > altura(raiz.getDir())) ? altura(raiz.getDir()) : (altura(raiz.getEsq()))) + 1);
 		
 		return raiz;
 	}
 
 	private NodeAVL rotacaoEsquerda(NodeAVL node) {
 		// TODO Auto-generated method stub
-		return null;
+		NodeAVL aux = node.getDir();
+		
+		node.setDir(node.getDir().getEsq());
+		aux.setEsq(node);
+		node.setAltura((altura(node.getDir()) > altura(node.getDir()) ? altura(node.getDir()) : (altura(node.getEsq())) + 1));
+		aux.setAltura((altura(aux.getDir()) > altura(aux.getDir()) ? altura(aux.getDir()) : (altura(aux.getEsq())) + 1));
+		
+		return aux;
 	}
 	
 	private NodeAVL rotacaoDireita(NodeAVL node) {
 		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	private NodeAVL rotacaoDuplaEsquerda(NodeAVL node) {
-		// TODO Auto-generated method stub
-		return null;
+		NodeAVL aux = node.getEsq();
+		
+		node.setEsq(node.getEsq().getDir());
+		aux.setDir(node);
+		node.setAltura((altura(node.getDir()) > altura(node.getDir()) ? altura(node.getDir()) : (altura(node.getEsq())) + 1));
+		aux.setAltura((altura(aux.getDir()) > altura(aux.getDir()) ? altura(aux.getDir()) : (altura(aux.getEsq())) + 1));
+		
+		return aux;
 	}
 	
 	private NodeAVL rotacaoDuplaDireita(NodeAVL node) {
 		// TODO Auto-generated method stub
-		return null;
+		node.setEsq(rotacaoDuplaEsquerda(node));
+		node = rotacaoDireita(node);
+		
+		return node;
+	}
+	
+	private NodeAVL rotacaoDuplaEsquerda(NodeAVL node) {
+		// TODO Auto-generated method stub
+		node.setDir(rotacaoDireita(node));
+		node = rotacaoDuplaEsquerda(node);
+		
+		return node;
 	}
 }
