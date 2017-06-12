@@ -8,6 +8,7 @@
 - Atividade 6: Hash Table Genérica e tratamento de exceções;
 - Atividade 7: Hash Table e Endereçamento Aberto;
 - Atividade 8: Árvore AVL;
+- Atividade 9: Java Generic em AVL e Splay;
 
 # Nota:
 - As atividades 3 e 4 não foram concluídas, pois não foi possível realizar os testes computacionais pedidos.
