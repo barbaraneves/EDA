@@ -1,7 +1,10 @@
-package hash;
+package enderecamento;
 
 import java.util.LinkedList;
 import java.util.List;
+
+import hash.Hash;
+import hash.NodeHash;
 
 public class EnderecamentoExterno extends Hash{
 	private List<NodeHash>[] tabela = null;

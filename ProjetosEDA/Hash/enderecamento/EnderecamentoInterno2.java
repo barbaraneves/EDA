@@ -1,53 +1,58 @@
-package hash;
+package enderecamento;
 
-public class EnderecamentoInterno1 extends Hash{
-	private Integer p = 0;
-	private NodeHash tabela[] = null;
+import hash.Hash;
+import hash.NodeHash;
+
+public class EnderecamentoInterno2 extends Hash{
+private NodeHash tabela[] = null;
 	
-	public EnderecamentoInterno1(Integer tam) {
+	public EnderecamentoInterno2(Integer tam) {
 		super(tam);
-		p = (int) (0.3 * tam);
 		tabela = new NodeHash[tam];
+		// TODO Auto-generated constructor stub
 	}
 	
-	public Integer fHash (Integer chave){
-		return (chave % p);
-	}
-
 	/**
-	 * Insere o elemento passando sua chave e o seu valor.
+	 * Insere o elemento através da sua chave e do seu valor.
 	 */
 	public void inserir(Integer chave, String valor) {
 		Integer n = fHash(chave);
-		System.out.println(n);
 		NodeHash no = new NodeHash(chave, valor);
 		
 		if(tabela[n] == null){
 			tabela[n] = no;
-			return;
 		}
-		int aux = n;
-		
-		while(tabela[aux].getProx() != -1){
-			if(tabela[aux].getChave() == chave){
+		while(tabela[n].getProx() != -1){
+			if(tabela[n].getChave() == chave){
 				return;
 			}
-			aux = tabela[aux].getProx();
+			n = tabela[n].getProx();
 		}
-		if(tabela[aux].getChave() == chave){
+		if(tabela[n].getChave() == chave){
 			return;
 		}
-		for (int i = p + 1; i < tabela.length; i++){
+		
+		int j = 1;
+		int max = tabela.length;
+		
+		for (int i = n + 1; i < max; i++){
+			if(j == max){
+				return;
+			}
 			if(tabela[i] == null){
 				tabela[i] = no; 
-				tabela[aux].setProx(i);
+				tabela[n].setProx(i);
 				return;
 			}
-		}
+			if(i % max == 0){
+				i = 0;
+			}
+			j++;
+		}		
 	}
 
 	/**
-	 * Busca o elemento através do valor da sua chave.
+	 * Busca o elemento de acordo com a o valor da sua chave.
 	 */
 	public String buscar(Integer chave) {
 		Integer n = fHash(chave);
@@ -69,11 +74,11 @@ public class EnderecamentoInterno1 extends Hash{
 	}
 
 	/**
-	 * Remove o elemento passando por parâmetro o valor da sua chave.
+	 * Remove o elemento através da sua chave.
 	 */
 	public String remover(Integer chave) {
 		Integer n = fHash(chave);
-		Integer aux = n;
+		int aux = n;
 		
 		if(tabela[n] != null){
 			if(tabela[n].getChave() == chave){
@@ -92,6 +97,7 @@ public class EnderecamentoInterno1 extends Hash{
 					tabela[aux].setProx(tabela[n].getProx());
 					String p = tabela[n].getValor();
 					tabela[n] = null;
+					
 					return p;
 				}
 				else if(tabela[n].getProx() != -1){
@@ -103,8 +109,6 @@ public class EnderecamentoInterno1 extends Hash{
 				}
 			}		
 		}
-		else{
-			return null;
-		}
+		return null;
 	}
 }
