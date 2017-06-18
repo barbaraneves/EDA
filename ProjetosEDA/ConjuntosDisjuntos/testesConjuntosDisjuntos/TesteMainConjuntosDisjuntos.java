@@ -6,5 +6,4 @@ public class TesteMainConjuntosDisjuntos {
 		// TODO Auto-generated method stub
 
 	}
-
 }
