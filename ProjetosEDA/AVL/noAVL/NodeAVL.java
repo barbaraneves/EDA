@@ -1,8 +1,8 @@
 package noAVL;
 
-public class NodeAVL {
-	private NodeAVL esq;
-	private NodeAVL dir;
+public class NodeAVL<T> {
+	private NodeAVL<T> esq;
+	private NodeAVL<T> dir;
 	private int altura;
 	private int chave;
 	
@@ -13,19 +13,19 @@ public class NodeAVL {
 		this.chave = chave;
 	}
 
-	public NodeAVL getEsq() {
+	public NodeAVL<T> getEsq() {
 		return esq;
 	}
 
-	public void setEsq(NodeAVL esq) {
+	public void setEsq(NodeAVL<T> esq) {
 		this.esq = esq;
 	}
 
-	public NodeAVL getDir() {
+	public NodeAVL<T> getDir() {
 		return dir;
 	}
 
-	public void setDir(NodeAVL dir) {
+	public void setDir(NodeAVL<T> dir) {
 		this.dir = dir;
 	}
 

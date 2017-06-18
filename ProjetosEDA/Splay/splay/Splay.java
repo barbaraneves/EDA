@@ -2,10 +2,10 @@ package splay;
 
 import noSplay.NodeSplay;
 
-public class Splay {
-	private NodeSplay raiz = null;
+public class Splay<T> {
+	private NodeSplay<T> raiz = null;
 	
-	public NodeSplay busca(int chave){
+	public NodeSplay<T> busca(int chave){
 		this.raiz = splay(this.raiz, chave);
 		
 		if(this.raiz.getChave() == chave){
@@ -16,7 +16,26 @@ public class Splay {
 		}
 	}
 	
-	private NodeSplay splay(NodeSplay raiz, int chave){
+	public void inserir(int chave){
+		raiz = inserir(raiz, chave);
+	}
+	
+	private NodeSplay<T> inserir(NodeSplay<T> raiz, int chave){
+		if(raiz == null){
+			return new NodeSplay<T>(chave);
+		}
+		else if(raiz.getChave() > chave){
+			raiz.setEsq(inserir(raiz.getEsq(), chave));
+		}
+		else if(raiz.getChave() < chave){
+			raiz.setDir(inserir(raiz.getDir(), chave));
+		}
+		raiz = splay(raiz, chave);
+		
+		return raiz;
+	}
+	
+	private NodeSplay<T> splay(NodeSplay<T> raiz, int chave){
 		if(raiz == null){
 			return null;
 		}
@@ -38,13 +57,23 @@ public class Splay {
 		return raiz;
 	}
 
-	private NodeSplay rotacaoDir(NodeSplay raiz) {
+	private NodeSplay<T> rotacaoDir(NodeSplay<T> raiz) {
 		// TODO Auto-generated method stub
-		return null;
+		NodeSplay<T> aux = raiz.getEsq();
+
+		raiz.setEsq(aux.getDir());
+		aux.setDir(raiz);
+
+		return aux;
 	}
 
-	private NodeSplay rotacaoEsquerda(NodeSplay raiz) {
+	private NodeSplay<T> rotacaoEsquerda(NodeSplay<T> raiz) {
 		// TODO Auto-generated method stub
-		return null;
+		NodeSplay<T> aux = raiz.getDir();
+		
+		raiz.setDir(aux.getEsq());
+		aux.setEsq(raiz);
+		
+		return aux;
 	}
 }

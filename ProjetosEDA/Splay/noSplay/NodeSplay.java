@@ -1,40 +1,30 @@
 package noSplay;
 
-public class NodeSplay {
-	private NodeSplay esq;
-	private NodeSplay dir;
-	private int altura;
+public class NodeSplay<T> {
+	private NodeSplay<T> esq;
+	private NodeSplay<T> dir;
 	private int chave;
 	
 	public NodeSplay(int chave){
 		esq = null;
 		dir = null;
-		altura = 1;
 		this.chave = chave;
 	}
 
-	public NodeSplay getEsq() {
+	public NodeSplay<T> getEsq() {
 		return esq;
 	}
 
-	public void setEsq(NodeSplay esq) {
+	public void setEsq(NodeSplay<T> esq) {
 		this.esq = esq;
 	}
 
-	public NodeSplay getDir() {
+	public NodeSplay<T> getDir() {
 		return dir;
 	}
 
-	public void setDir(NodeSplay dir) {
+	public void setDir(NodeSplay<T> dir) {
 		this.dir = dir;
-	}
-
-	public int getAltura() {
-		return altura;
-	}
-
-	public void setAltura(int altura) {
-		this.altura = altura;
 	}
 
 	public int getChave() {

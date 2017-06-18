@@ -2,20 +2,20 @@ package aVL;
 
 import noAVL.NodeAVL;
 
-public class AVL {
-	private NodeAVL raiz = null;
+public class AVL<T> {
+	private NodeAVL<T> raiz = null;
 	
 	public void inserir(int chave){
 		this.raiz = inserir(this.raiz, chave);
 	}
 	
-	private int altura(NodeAVL raiz){
+	private int altura(NodeAVL<T> raiz){
 		return (raiz != null ? raiz.getAltura() : 0);
 	}
 	
-	private NodeAVL inserir(NodeAVL raiz, int chave){
+	private NodeAVL<T> inserir(NodeAVL<T> raiz, int chave){
 		if(raiz == null){
-			NodeAVL node = new NodeAVL(chave);
+			NodeAVL<T> node = new NodeAVL<T>(chave);
 			return node;
 		}
 		else if(raiz.getChave() > chave){
@@ -50,9 +50,9 @@ public class AVL {
 		return raiz;
 	}
 
-	private NodeAVL rotacaoEsquerda(NodeAVL node) {
+	private NodeAVL<T> rotacaoEsquerda(NodeAVL<T> node) {
 		// TODO Auto-generated method stub
-		NodeAVL aux = node.getDir();
+		NodeAVL<T> aux = node.getDir();
 		
 		node.setDir(node.getDir().getEsq());
 		aux.setEsq(node);
@@ -62,9 +62,9 @@ public class AVL {
 		return aux;
 	}
 	
-	private NodeAVL rotacaoDireita(NodeAVL node) {
+	private NodeAVL<T> rotacaoDireita(NodeAVL<T> node) {
 		// TODO Auto-generated method stub
-		NodeAVL aux = node.getEsq();
+		NodeAVL<T> aux = node.getEsq();
 		
 		node.setEsq(node.getEsq().getDir());
 		aux.setDir(node);
@@ -74,7 +74,7 @@ public class AVL {
 		return aux;
 	}
 	
-	private NodeAVL rotacaoDuplaDireita(NodeAVL node) {
+	private NodeAVL<T> rotacaoDuplaDireita(NodeAVL<T> node) {
 		// TODO Auto-generated method stub
 		node.setEsq(rotacaoDuplaEsquerda(node));
 		node = rotacaoDireita(node);
@@ -82,7 +82,7 @@ public class AVL {
 		return node;
 	}
 	
-	private NodeAVL rotacaoDuplaEsquerda(NodeAVL node) {
+	private NodeAVL<T> rotacaoDuplaEsquerda(NodeAVL<T> node) {
 		// TODO Auto-generated method stub
 		node.setDir(rotacaoDireita(node));
 		node = rotacaoDuplaEsquerda(node);
