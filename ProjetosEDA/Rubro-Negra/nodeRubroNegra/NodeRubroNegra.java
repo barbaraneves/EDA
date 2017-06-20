@@ -5,7 +5,8 @@ public class NodeRubroNegra<T> {
 	private NodeRubroNegra<T> dir;
 	private int chave;
 	private boolean cor;
-	
+	private T info;
+
 	public static final boolean PRETO = true;
 	public static final boolean VERMELHO = false;
 	
@@ -13,7 +14,7 @@ public class NodeRubroNegra<T> {
 		esq = null;
 		dir = null;
 		this.chave = chave;
-		cor = false;
+		this.cor = VERMELHO;
 	}
 
 	public NodeRubroNegra<T> getEsq() {
@@ -54,5 +55,13 @@ public class NodeRubroNegra<T> {
 
 	public static boolean isVermelho() {
 		return VERMELHO;
+	}
+	
+	public T getInfo() {
+		return info;
+	}
+
+	public void setInfo(T info) {
+		this.info = info;
 	}
 }

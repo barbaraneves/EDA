@@ -37,6 +37,7 @@ public class RubroNegra<T> {
 			NodeRubroNegra<T> node = new NodeRubroNegra<T>(chave);
 			return node;
 		}
+		
 		if(chave < raiz.getChave()){
 			raiz.setEsq(add(raiz.getEsq(), chave));
 		}
@@ -50,23 +51,41 @@ public class RubroNegra<T> {
 		else if(!isPreto(raiz) && !isPreto(raiz.getDir())){
 			raiz = rotacaoEsquerda(raiz);
 		}
-		else if(!isPreto(raiz.getDir()) && !isPreto(raiz.getEsq()) && !isPreto(raiz.getEsq().getEsq())){
+		else if(isPreto(raiz.getDir()) && !isPreto(raiz.getEsq()) && !isPreto(raiz.getEsq().getEsq())){
+			raiz = rotacaoDireita(raiz);
+			raiz.setCor(NodeRubroNegra.PRETO);
+			raiz.getDir().setCor(NodeRubroNegra.VERMELHO);
+		}
+		else if(!isPreto(raiz.getDir()) && !isPreto(raiz.getEsq()) && !isPreto(raiz.getDir().getDir())){
+			recolorir(raiz);
+		}
+		else if(!isPreto(raiz) && !isPreto(raiz.getEsq())){
 			raiz = rotacaoDireita(raiz);
 		}
-		
-		raiz.setCor(NodeRubroNegra.PRETO);
-		raiz.getDir().setCor(NodeRubroNegra.VERMELHO);
+		else if(isPreto(raiz.getEsq()) && !isPreto(raiz.getDir()) && !isPreto(raiz.getDir().getDir())){
+			raiz = rotacaoEsquerda(raiz);
+			raiz.setCor(NodeRubroNegra.PRETO);
+			raiz.getEsq().setCor(NodeRubroNegra.VERMELHO);
+		}
 		
 		return raiz;
 	}
 
 	private NodeRubroNegra<T> rotacaoDireita(NodeRubroNegra<T> raiz){
 		// TODO Auto-generated method stub
-		return null;
+		NodeRubroNegra<T> aux = raiz.getEsq();
+		raiz.setEsq(raiz.getEsq().getDir());
+		aux.setDir(raiz);
+		
+		return aux;
 	}
 
 	private NodeRubroNegra<T> rotacaoEsquerda(NodeRubroNegra<T> raiz) {
 		// TODO Auto-generated method stub
-		return null;
+		NodeRubroNegra<T> aux = raiz.getDir();
+		raiz.setDir(raiz.getDir().getEsq());
+		aux.setEsq(raiz);
+		
+		return aux;
 	}
 }
