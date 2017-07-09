@@ -12,8 +12,10 @@
 - Atividade 10: Ávore Rubro Negra, e Java Generic em Rubro Negra;
 - Atividade 11: Aplicação do método "remover" nas três árvores (AVL, Splay e Rubro-Negra).
 
-- Trabalho Final: 
+- Trabalho Final sobre Árvores Balanceadas: O trabalho consiste de experimentos computacionais para comparar o desempenho da Árvore AVL, Árvore Splay e da Árvore Rubro-Negra, que possuem as operações de criação, inserção, busca e remoção. São dados três tipos de instâncias, que para cada instância, é escolhido qual atributo será a chave de busca. Explicações mais detalhadas vide .pdf do trabalho. 
+
 
 # Nota:
 - As atividades 3 e 4 não foram concluídas, pois não foi possível realizar os testes computacionais pedidos.
 - Atividade 7 não foi concluída.
+- Os resultados computacionais do trabalho final sobre Árvores Balanceadas está na pasta /ResultadosComputacionais/TrabalhoFinal/.
