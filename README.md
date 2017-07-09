@@ -1,4 +1,4 @@
-# Repositório que contém as atividades da disciplina de Estrutura de Dados Avançados
+# Repositório que contém as atividades da disciplina de Estrutura de Dados Avançada
 
 - Atividade 1: Listas de Prioridades (vetor não ordenado, vetor ordenado e heap binário mínimo) e testes computacionais em cima dessas estruturas;
 - Atividade 2: Heap Binário Mínimo, Heap Ternário Mínimo e testes computacionais em cima dessas estruturas;
@@ -10,6 +10,9 @@
 - Atividade 8: Árvore AVL;
 - Atividade 9: Árvore Splay, e Java Generic em AVL e Splay;
 - Atividade 10: Ávore Rubro Negra, e Java Generic em Rubro Negra;
+- Atividade 11: Aplicação do método "remover" nas três árvores (AVL, Splay e Rubro-Negra).
+
+- Trabalho Final: 
 
 # Nota:
 - As atividades 3 e 4 não foram concluídas, pois não foi possível realizar os testes computacionais pedidos.
