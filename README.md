@@ -1,7 +1,7 @@
-# Repositório que contém as atividades da disciplina de Estrutura de Dados Avançada
-
-#IMPORTANTE:
+# IMPORTANTE:
 - Os resultados computacionais do trabalho final sobre Árvores Balanceadas está na pasta: EDA/ProjetosEDA/ResultadosComputacionais/TrabalhoFinal/
+
+# Repositório que contém as atividades da disciplina de Estrutura de Dados Avançada
 
 - Atividade 1: Listas de Prioridades (vetor não ordenado, vetor ordenado e heap binário mínimo) e testes computacionais em cima dessas estruturas;
 - Atividade 2: Heap Binário Mínimo, Heap Ternário Mínimo e testes computacionais em cima dessas estruturas;
